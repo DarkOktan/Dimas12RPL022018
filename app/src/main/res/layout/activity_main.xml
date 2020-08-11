@@ -30,13 +30,13 @@
             android:layout_height="wrap_content"
             android:hint="Username"
             android:layout_gravity="center"
-            android:id="@+id/txtusername"
+            android:id="@+id/txtUsername"
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
-            android:id="@+id/txtpassword"
+            android:id="@+id/txtPassword"
             android:inputType="textPassword"
             />
 
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
-            android:id="@+id/btnPassword"
+            android:id="@+id/btnLogin"
             />
     </LinearLayout>
 
