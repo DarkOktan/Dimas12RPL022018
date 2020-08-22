@@ -11,6 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#115A5A5A"
         android:layout_gravity="center">
 
         <TextView
@@ -44,7 +47,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
+            android:background="#2A91C1"
             android:id="@+id/btnLogin"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textSize="10dp"
+            android:background="#002A91C1"
             />
     </LinearLayout>
 
