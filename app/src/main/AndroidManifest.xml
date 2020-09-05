@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DasboardLayoutActivity"></activity>
+        <activity android:name=".AdminCostumerData"></activity>
+        <activity android:name=".ActivityMainMenu" />
+        <activity android:name=".AdapterView" />
+        <activity android:name=".DasboardLayoutActivity" />
         <activity android:name=".RegisterLayoutActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
