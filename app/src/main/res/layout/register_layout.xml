@@ -35,11 +35,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Name"
+                android:id="@+id/txtregname"
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
+                android:id="@+id/txtregemail"
                 />
             <EditText
                 android:layout_width="match_parent"
@@ -50,34 +52,33 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="ReWrite Password"
-                android:inputType="textPassword"
-                />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:hint="No KTP"
+                android:id="@+id/txtregnoktp"
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="No Hp"
+                android:id="@+id/txtregnohp"
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Alamat"
+                android:id="@+id/txtregalamat"
                 />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Register"
+                android:id="@+id/btn_registeration"
                 />
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Reset"
+                android:id="@+id/btn_reset"
                 />
 
         </LinearLayout>
