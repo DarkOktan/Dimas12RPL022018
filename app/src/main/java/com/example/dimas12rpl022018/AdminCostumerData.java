@@ -47,8 +47,7 @@ public class AdminCostumerData extends AppCompatActivity {
         datalist = new ArrayList<>();
         Log.d("geo", "onCreate: ");
 
-        AndroidNetworking.post(BaseUrl.url + "viewdata.php")
-                .addBodyParameter("roleuser", "2")
+        AndroidNetworking.post(BaseUrl.url + "getCostumerAll.php")
                 .setTag("test")
                 .setPriority(Priority.MEDIUM)
                 .build()
@@ -56,14 +55,19 @@ public class AdminCostumerData extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONArray data = response.getJSONArray("PAYLOAD");
+                            JSONArray data = response.getJSONArray("result");
 
+                            Log.d("OnResponse", "Data Costumer");
                             for (int i = 0; i < data.length(); i++) {
 
                                 Model model = new Model();
                                 JSONObject object = data.getJSONObject(i);
+                                model.setNama(object.getString("id"));
                                 model.setNama(object.getString("nama"));
                                 model.setEmail(object.getString("email"));
+                                model.setNohp(object.getString("nohp"));
+                                model.setAlamat(object.getString("alamat"));
+                                model.setNoktp(object.getString("noktp"));
                                 datalist.add(model);
 
                             }
@@ -76,9 +80,9 @@ public class AdminCostumerData extends AppCompatActivity {
 
                             recyclerView.setAdapter(adapter);
 
-                            Log.d("pay1", "onResponse: " + response.getJSONArray("PAYLOAD"));
+                            Log.d("pay1", "onResponse: " + response.getJSONArray("result"));
 
-                            if (response.getJSONArray("PAYLOAD").length() == 0){
+                            if (response.getJSONArray("result").length() == 0){
 
                                 recyclerView.setVisibility(View.GONE);
 

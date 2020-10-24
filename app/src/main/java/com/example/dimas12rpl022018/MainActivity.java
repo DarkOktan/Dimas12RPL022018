@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 String username = txt_username.getText().toString();
                 String password = txt_password.getText().toString().trim();
 
+                Log.d("OnResponse", BaseUrl.url + "login.php");
                 AndroidNetworking.post(BaseUrl.url + "login.php")
                         .addBodyParameter("username", username)
                         .addBodyParameter("password", password)
@@ -51,12 +52,12 @@ public class MainActivity extends AppCompatActivity {
                             public void onResponse(JSONObject response) {
                                 Log.d("OnResponse", "Connected");
                                 try {
-                                    JSONObject PAYLOAD = response.getJSONObject("PAYLOAD");
+                                    JSONObject PAYLOAD = response.getJSONObject("hasil");
                                     boolean sukses = PAYLOAD.getBoolean("respon");
                                     String roleuser = PAYLOAD.getString("roleuser");
 
                                     String suksesString = PAYLOAD.getString("respon");
-                                    Log.d(suksesString, "test");
+                                    Log.d("onResponse", suksesString);
                                     Log.d("PAYLOAD", "onResponse: " + PAYLOAD);
                                     if (sukses && roleuser.equals("1")) {
                                         Intent intent = new Intent(MainActivity.this, ActivityMainMenu.class);

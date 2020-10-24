@@ -7,12 +7,14 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 public class DasboardLayoutActivity extends AppCompatActivity {
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,21 +33,23 @@ public class DasboardLayoutActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        //if (item.getItemId() == R.id.) {
-        //    new AlertDialog.Builder(this)
-        //            .setTitle("Really Logout?")
-        //            .setMessage("Are you sure you want to logout?")
-        //            .setNegativeButton(android.R.string.no, null)
-        //            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+        if (item.getItemId() == R.id.miCompose) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Really Logout?")
+                    .setMessage("Are you sure you want to logout?")
+                    .setNegativeButton(android.R.string.no, null)
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
-        //               public void onClick(DialogInterface arg0, int arg1) {
-        //                    Intent intent = new Intent(DasboardLayoutActivity.this, MainActivity.class);
-        //                    startActivity(intent);
-        //                    finish();
-        //                }
-        //            }).create().show();
-        //    return true;
-        //}
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            sp = getSharedPreferences("login",MODE_PRIVATE);
+                            sp.edit().putBoolean("logged",false).apply();
+                            Intent intent = new Intent(DasboardLayoutActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }).create().show();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
