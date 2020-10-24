@@ -31,7 +31,7 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.UserViewHolder
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        viewku = layoutInflater.inflate(R.layout.activity_admin_costumer_data, parent, false);
+        viewku = layoutInflater.inflate(R.layout.adapterview_layout, parent, false);
         return new UserViewHolder(viewku);
 
     }
@@ -66,11 +66,11 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.UserViewHolder
         private TextView tvNama, tvEmail;
         CardView cvInbox;
 
-        UserViewHolder(View itemView) {
-            super(itemView);
-            cvInbox = itemView.findViewById(R.id.cvInbox);
-            tvNama = itemView.findViewById(R.id.tvNama);
-            tvEmail = itemView.findViewById(R.id.tvEmail);
+        UserViewHolder(View adapterView) {
+            super(adapterView);
+            cvInbox = adapterView.findViewById(R.id.cvInbox);
+            tvNama = adapterView.findViewById(R.id.tvNama);
+            tvEmail = adapterView.findViewById(R.id.tvEmail);
         }
     }
 
