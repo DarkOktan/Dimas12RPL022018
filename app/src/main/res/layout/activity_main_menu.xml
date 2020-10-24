@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ActivityMainMenu"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@mipmap/_pakaji">
 
     <TextView
         android:layout_width="match_parent"

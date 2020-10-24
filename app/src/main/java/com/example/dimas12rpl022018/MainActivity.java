@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     EditText txt_username;
     EditText txt_password;
     Button btn_login;
+    Button btn_register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btn_login = (Button)findViewById(R.id.btnLogin);
+        btn_register = (Button)findViewById(R.id.btnregister);
         txt_username = (EditText)findViewById(R.id.txtUsername);
         txt_password = (EditText)findViewById(R.id.txtPassword);
 
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String username = txt_username.getText().toString();
                 String password = txt_password.getText().toString().trim();
+
                 AndroidNetworking.post(BaseUrl.url + "login.php")
                         .addBodyParameter("username", username)
                         .addBodyParameter("password", password)
@@ -46,17 +49,20 @@ public class MainActivity extends AppCompatActivity {
                         .getAsJSONObject(new JSONObjectRequestListener() {
                             @Override
                             public void onResponse(JSONObject response) {
-                                Log.d("hasil", "onResponse: ");
+                                Log.d("OnResponse", "Connected");
                                 try {
                                     JSONObject PAYLOAD = response.getJSONObject("PAYLOAD");
                                     boolean sukses = PAYLOAD.getBoolean("respon");
                                     String roleuser = PAYLOAD.getString("roleuser");
+
+                                    String suksesString = PAYLOAD.getString("respon");
+                                    Log.d(suksesString, "test");
                                     Log.d("PAYLOAD", "onResponse: " + PAYLOAD);
-                                    if (sukses && roleuser.equals("admin")) {
+                                    if (sukses && roleuser.equals("1")) {
                                         Intent intent = new Intent(MainActivity.this, ActivityMainMenu.class);
                                         startActivity(intent);
                                         finish();
-                                    } else if (sukses && roleuser.equals("customer")){
+                                    } else if (sukses){
                                         Intent intent = new Intent(MainActivity.this, DasboardLayoutActivity.class);
                                         startActivity(intent);
                                         finish();
@@ -70,9 +76,17 @@ public class MainActivity extends AppCompatActivity {
 
                             @Override
                             public void onError(ANError anError) {
-
+                                Log.d("OnResponse", "No Connection");
                             }
                         });
+            }
+        });
+
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RegisterLayoutActivity.class);
+                startActivity(intent);
             }
         });
     }

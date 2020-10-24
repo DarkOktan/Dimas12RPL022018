@@ -47,7 +47,7 @@ public class AdminCostumerData extends AppCompatActivity {
         datalist = new ArrayList<>();
         Log.d("geo", "onCreate: ");
 
-        AndroidNetworking.post(BaseUrl.url + "datacustomer.php")
+        AndroidNetworking.post(BaseUrl.url + "viewdata.php")
                 .addBodyParameter("roleuser", "2")
                 .setTag("test")
                 .setPriority(Priority.MEDIUM)
