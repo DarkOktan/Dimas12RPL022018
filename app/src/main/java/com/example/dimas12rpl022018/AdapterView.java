@@ -63,14 +63,14 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.UserViewHolder
     }
 
     class UserViewHolder extends RecyclerView.ViewHolder{
-        public TextView tvNama, tvEmail;
+        private TextView tvNama, tvEmail;
         CardView cvInbox;
 
         UserViewHolder(View itemView) {
             super(itemView);
             cvInbox = itemView.findViewById(R.id.cvInbox);
-            tvNama = (TextView) itemView.findViewById(R.id.tvNama);
-            tvEmail = (TextView) itemView.findViewById(R.id.tvEmail);
+            tvNama = itemView.findViewById(R.id.tvNama);
+            tvEmail = itemView.findViewById(R.id.tvEmail);
         }
     }
 
