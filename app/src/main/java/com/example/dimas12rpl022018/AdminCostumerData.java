@@ -62,7 +62,7 @@ public class AdminCostumerData extends AppCompatActivity {
 
                                 Model model = new Model();
                                 JSONObject object = data.getJSONObject(i);
-                                model.setNama(object.getString("id"));
+                                model.setId(object.getString("id"));
                                 model.setNama(object.getString("nama"));
                                 model.setEmail(object.getString("email"));
                                 model.setNohp(object.getString("nohp"));

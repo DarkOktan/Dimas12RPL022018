@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,7 +31,7 @@ public class EditCostumer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_costumer);
 
-        tvId = findViewById(R.id.txtId);
+        tvId = findViewById(R.id.tvId);
         etNama = findViewById(R.id.txtNama);
         etEmai = findViewById(R.id.txtEmail);
         etNoHp = findViewById(R.id.txtNohp);
@@ -68,6 +69,8 @@ public class EditCostumer extends AppCompatActivity {
                         .getAsJSONObject(new JSONObjectRequestListener() {
                             @Override
                             public void onResponse(JSONObject response) {
+                                Log.d("onResponse" , "Edited");
+
                                 try {
                                     JSONObject hasil = response.getJSONObject("hasil");
                                     boolean sukses = hasil.getBoolean("respon");
@@ -87,7 +90,7 @@ public class EditCostumer extends AppCompatActivity {
 
                             @Override
                             public void onError(ANError anError) {
-
+                                Log.d("OnResponse", "No Connection");
                             }
                         });
             }

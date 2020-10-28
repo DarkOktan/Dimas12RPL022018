@@ -24,7 +24,7 @@
         android:layout_marginHorizontal="20dp"
         android:text="ID"
         android:textSize="20sp"
-        android:id="@+id/txtId"/>
+        android:id="@+id/tvId"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -65,6 +65,15 @@
         android:layout_marginTop="50dp"
         android:textColor="@android:color/white"
         android:background="#29B397"
-        android:text="CLICK"/>
+        android:text="Edit"/>
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@android:color/white"
+        android:background="#9A3333"
+        android:text="Delete"/>
 
 </LinearLayout>

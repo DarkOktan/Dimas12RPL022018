@@ -74,12 +74,17 @@
                 android:layout_height="wrap_content"
                 android:text="Register"
                 android:id="@+id/btn_registeration"
+                android:background="#29B397"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp"
                 />
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Reset"
                 android:id="@+id/btn_reset"
+                android:textColor="#FFFFFF"
+                android:background="#9A3333"
                 />
 
         </LinearLayout>

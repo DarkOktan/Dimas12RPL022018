@@ -22,8 +22,6 @@ public class DasboardLayoutActivity extends AppCompatActivity {
         setContentView(R.layout.dasboard_layout);
 
         getSupportActionBar().setTitle("Rental Sepeda");
-
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
