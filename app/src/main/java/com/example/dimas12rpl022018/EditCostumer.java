@@ -24,7 +24,7 @@ public class EditCostumer extends AppCompatActivity {
 
     TextView tvId;
     EditText etNama, etEmai, etNoHp, EtAlamat, etNoKtp;
-    Button btnEdit;
+    Button btnEdit, btnDeleteCostumer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,7 @@ public class EditCostumer extends AppCompatActivity {
         EtAlamat = findViewById(R.id.txtAlamat);
         etNoKtp = findViewById(R.id.txtNoktp);
         btnEdit = findViewById(R.id.btnEdit);
+        btnDeleteCostumer = findViewById(R.id.btnDeleteCostumer);
 
         Bundle extras = getIntent().getExtras();
         final String id = extras.getString("id");
@@ -82,6 +83,42 @@ public class EditCostumer extends AppCompatActivity {
                                         Toast.makeText(EditCostumer.this, "Edit Suskses", Toast.LENGTH_SHORT).show();
                                     } else {
                                         Toast.makeText(EditCostumer.this, "Edit gagal", Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onError(ANError anError) {
+                                Log.d("OnResponse", "No Connection");
+                            }
+                        });
+            }
+        });
+
+        btnDeleteCostumer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AndroidNetworking.post(BaseUrl.url + "deleteCostumer.php")
+                        .addBodyParameter("id", id)
+                        .setPriority(Priority.LOW)
+                        .build()
+                        .getAsJSONObject(new JSONObjectRequestListener() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                Log.d("onResponse" , "Edited");
+
+                                try {
+                                    JSONObject hasil = response.getJSONObject("hasil");
+                                    boolean sukses = hasil.getBoolean("respon");
+                                    if (sukses) {
+                                        Intent returnIntent = new Intent(EditCostumer.this, AdminCostumerData.class);
+                                        startActivity(returnIntent);
+                                        finish();
+                                        Toast.makeText(EditCostumer.this, "Delete Suskses", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(EditCostumer.this, "Delete gagal", Toast.LENGTH_SHORT).show();
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();

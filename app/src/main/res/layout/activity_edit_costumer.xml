@@ -67,7 +67,7 @@
         android:background="#29B397"
         android:text="Edit"/>
     <Button
-        android:id="@+id/btnDelete"
+        android:id="@+id/btnDeleteCostumer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"

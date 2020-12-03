@@ -23,7 +23,7 @@ public class EditDataSepedaActvity extends AppCompatActivity {
 
     TextView tvId;
     EditText etKode, etMerk, etJenis, etWarna, etHargaSewa;
-    Button btnEdit;
+    Button btnEdit, btnDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class EditDataSepedaActvity extends AppCompatActivity {
         etWarna = findViewById(R.id.txtWarna);
         etHargaSewa = findViewById(R.id.txtHargaSewa);
         btnEdit = findViewById(R.id.btnEdit);
+        btnDelete = findViewById(R.id.btnDeleteDataSepeda);
 
         Bundle extras = getIntent().getExtras();
         final String id = extras.getString("id");
@@ -81,6 +82,43 @@ public class EditDataSepedaActvity extends AppCompatActivity {
                                         Toast.makeText(EditDataSepedaActvity.this, "Edit Suskses", Toast.LENGTH_SHORT).show();
                                     } else {
                                         Toast.makeText(EditDataSepedaActvity.this, "Edit gagal", Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onError(ANError anError) {
+                                Log.d("OnResponse", "No Connection");
+                            }
+                        });
+            }
+        });
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AndroidNetworking.post(BaseUrl.url + "deletesepeda.php")
+                        .addBodyParameter("id", id)
+                        .addBodyParameter("kode", etKode.getText().toString())
+                        .setPriority(Priority.LOW)
+                        .build()
+                        .getAsJSONObject(new JSONObjectRequestListener() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                Log.d("onResponse" , "Edited");
+
+                                try {
+                                    JSONObject hasil = response.getJSONObject("hasil");
+                                    boolean sukses = hasil.getBoolean("respon");
+                                    if (sukses) {
+                                        Intent returnIntent = new Intent(EditDataSepedaActvity.this, RecycleViewDataSepedaActivity.class);
+                                        startActivity(returnIntent);
+                                        finish();
+                                        Toast.makeText(EditDataSepedaActvity.this, "Delete Suskses", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(EditDataSepedaActvity.this, "Delete gagal", Toast.LENGTH_SHORT).show();
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
