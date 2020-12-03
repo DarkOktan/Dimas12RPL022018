@@ -25,39 +25,39 @@
         android:layout_marginHorizontal="20dp"
         android:text="ID"
         android:textSize="20sp"
-        android:id="@+id/tvId"/>
+        android:id="@+id/tvIdDataSepeda"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:hint="Kode"
-        android:id="@+id/txtkode"/>
+        android:id="@+id/txtKode"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:hint="Email"
+        android:hint="Merk"
         android:inputType="textEmailAddress"
-        android:id="@+id/txtEmail"/>
+        android:id="@+id/txtMerk"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:hint="No KTP"
-        android:id="@+id/txtNoktp"/>
+        android:hint="Jenis"
+        android:id="@+id/txtJenis"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:hint="No Hp"
-        android:id="@+id/txtNohp"/>
+        android:hint="Warna"
+        android:id="@+id/txtWarna"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:hint="Alamat"
-        android:id="@+id/txtAlamat"/>
+        android:hint="Harga Sewa"
+        android:id="@+id/txtHargaSewa"/>
     <Button
         android:id="@+id/btnEdit"
         android:layout_width="match_parent"

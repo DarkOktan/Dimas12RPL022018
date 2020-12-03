@@ -38,7 +38,8 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.UserViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull final UserViewHolder holder, final int position) {
-        Log.d("onResponse", dataList.get(position).getNama());
+        Log.d("NameUser", dataList.get(position).getNama());
+        Log.d("Masuk", "WEE MASUKKK");
 
         holder.tvNama.setText(dataList.get(position).getNama());
         holder.tvEmail.setText(dataList.get(position).getEmail());

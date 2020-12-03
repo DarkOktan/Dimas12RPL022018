@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditDataSepedaActvity"></activity>
+        <activity android:name=".RecycleViewDataSepedaActivity"></activity>
+        <activity android:name=".EditDataSepedaActvity" />
         <activity android:name=".AddDataSepedaActivity" />
         <activity android:name=".EditCostumer" />
         <activity android:name=".AdminCostumerData" />

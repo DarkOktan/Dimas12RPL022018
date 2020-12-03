@@ -30,6 +30,28 @@
         android:background="#3A0E78"/>
 
     <Button
+        android:id="@+id/btn_dataSepeda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="5dp"
+        android:text="Data Sepeda"
+        android:gravity="center"
+        android:textColor="#25A673"
+        android:background="#3A0E78"/>
+
+    <Button
+        android:id="@+id/btn_addDataSepeda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="2dp"
+        android:text="Add DataSepeda"
+        android:gravity="center"
+        android:textColor="#25A673"
+        android:background="#3A0E78"/>
+
+    <Button
         android:id="@+id/btn_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
